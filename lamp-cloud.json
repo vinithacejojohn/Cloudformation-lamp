@@ -86,13 +86,7 @@
         "SecurityGroups" : [ { "Ref" : "MySecurityGroup" } ],
         "UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
              "#!/bin/bash\n",
-             "yum install -y epel-release\n",
-             "yum install -y awscli\n",
-             "/usr/bin/easy_install --script-dir /opt/aws/bin https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz\n",
-             "cp -v /usr/lib/python2*/site-packages/aws_cfn_bootstrap*/init/redhat/cfn-hup /etc/init.d \n",
-             "chmod +x /etc/init.d/cfn-hup \n",             
-
-
+             
              "# Install the files and packages from the metadata\n",
              "/opt/aws/bin/cfn-init -v ",
              "         --stack ", { "Ref" : "AWS::StackName" },
